@@ -1,7 +1,7 @@
 jsforce.browser.init({
-    clientId: '3MVG9CEn_O3jvv0zQGZ3RC8AeiMSjxon81whEHIKuwS6_CFiVtuINv6ojt1Ma0nS._BjkRmrN0RFL2ujuuPoU',
-    redirectUri: 'https://heroku-cdc-demo.herokuapp.com',
-    loginUrl : 'https://test.salesforce.com',
+    clientId: '3MVG9VTfpJmxg1yiN0E5nWlm99SDfygO27sTx6LspydJVSXtiAq0iQ7OKuc6g9BK.LdEmdfoHbGQwTrcLP_b2',
+    redirectUri: 'https://heroku-cdc-demo-de0da25d44c8.herokuapp.com',
+    loginUrl : 'https://login.salesforce.com',
     version: '46.0',
 });
   
