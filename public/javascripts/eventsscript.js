@@ -34,14 +34,14 @@ ws.onmessage = function (event) {
   })) {
     console.log('duplicate found');
   } else {
-    const parsed = JSON.parse(newData);
+
     // Initialize an empty array to hold field-value pairs
     const changedFieldsWithValues = [];
     // Extract list of changed fields from the ChangeEventHeader
-    const changedFields = parsed.ChangeEventHeader.changedFields; 
+    const changedFields = newData.ChangeEventHeader.changedFields; 
     // Iterate through changed fields and extract their new values
     changedFields.forEach(field => {
-      const value = parsed[field]; // direct key lookup
+      const value = newData[field]; // direct key lookup
       changedFieldsWithValues.push({ field, value });
     });
     console.log(changedFieldsWithValues);
