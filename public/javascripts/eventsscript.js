@@ -33,7 +33,7 @@ ws.onmessage = function (event) {
   })) {
     console.log('duplicate found');
   } else {
-    app.messages.push(newData);
+    //app.messages.push(newData);
   }
 };
 
