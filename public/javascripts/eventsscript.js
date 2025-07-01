@@ -8,7 +8,8 @@ const ws = new WebSocket(HOST);
 var app = new Vue({
     el: '#app',
     data: {
-      messages: []
+      messages: [], 
+      filteredmessages: []
     }
 });
 
@@ -45,7 +46,8 @@ ws.onmessage = function (event) {
       changedFieldsWithValues.push({ field, value });
     });
     console.log(changedFieldsWithValues);
-    app.messages.push(changedFieldsWithValues);
+    app.filteredmessages.push(changedFieldsWithValues);
+    app.messages.push(newData);
   }
 };
 
