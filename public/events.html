@@ -15,7 +15,7 @@
             <li>No Messages</li>
         </span>        
         <span v-if="messages.length > 0">
-            <li v-for="message in messages">
+            <li v-for="message in filteredmessages">
                 {{ message }}
             </li>            
         </span>
