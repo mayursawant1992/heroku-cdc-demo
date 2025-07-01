@@ -45,6 +45,13 @@ ws.onmessage = function (event) {
       const value = newData[field]; // direct key lookup
       changedFieldsWithValues.push({ field, value });
     });
+
+    // Extract recordIds
+    const recordIds = parsed.ChangeEventHeader.recordIds || [];
+    recordIds.forEach((id, index) => {
+      changedFieldsWithValues.push({ field: `recordId_${index + 1}`, value: id });
+    });
+      
     console.log(changedFieldsWithValues);
     app.filteredmessages.push(changedFieldsWithValues);
     app.messages.push(newData);
