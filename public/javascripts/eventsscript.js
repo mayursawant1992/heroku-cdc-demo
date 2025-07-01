@@ -47,7 +47,7 @@ ws.onmessage = function (event) {
     });
 
     // Extract recordIds
-    const recordIds = parsed.ChangeEventHeader.recordIds || [];
+    const recordIds = newData.ChangeEventHeader.recordIds || [];
     recordIds.forEach((id, index) => {
       changedFieldsWithValues.push({ field: `recordId_${index + 1}`, value: id });
     });
