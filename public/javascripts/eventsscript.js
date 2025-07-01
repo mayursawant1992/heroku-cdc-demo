@@ -28,14 +28,14 @@ ws.onmessage = function (event) {
   // console.log(event.data);
   const newData = JSON.parse(event.data).payload;
   console.log(newData);
-  app.messages.push(newData);
-  /*if (app.messages.find( msg => {
-    return msg.ChangeEventHeader.sequenceNumber === newData.ChangeEventHeader.sequenceNumber
+  //app.messages.push(newData);
+  if (app.messages.find( msg => {
+    return msg.ChangeEventHeader.sequenceNumber + msg.ChangeEventHeader.transactionKey === newData.ChangeEventHeader.sequenceNumber + newData.ChangeEventHeader.transactionKey
   })) {
     console.log('duplicate found');
   } else {
     app.messages.push(newData);
-  }*/
+  }
 };
 
 const logout = () => {    
