@@ -29,11 +29,11 @@ ws.onmessage = function (event) {
   const newData = JSON.parse(event.data).payload;
   console.log(newData);
   if (app.messages.find( msg => {
-    return msg.ChangeEventHeader.transactionKey === newData.ChangeEventHeader.transactionKey
+    return msg.ChangeEventHeader.sequenceNumber === newData.ChangeEventHeader.sequenceNumber
   })) {
     console.log('duplicate found');
   } else {
-    //app.messages.push(newData);
+    app.messages.push(newData);
   }
 };
 
