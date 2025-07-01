@@ -28,13 +28,14 @@ ws.onmessage = function (event) {
   // console.log(event.data);
   const newData = JSON.parse(event.data).payload;
   console.log(newData);
-  if (app.messages.find( msg => {
+  app.messages.push(newData);
+  /*if (app.messages.find( msg => {
     return msg.ChangeEventHeader.sequenceNumber === newData.ChangeEventHeader.sequenceNumber
   })) {
     console.log('duplicate found');
   } else {
     app.messages.push(newData);
-  }
+  }*/
 };
 
 const logout = () => {    
