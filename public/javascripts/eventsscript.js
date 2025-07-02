@@ -35,7 +35,7 @@ ws.onmessage = function (event) {
   })) {
     console.log('duplicate found');
   } else {
-    if( newData.ChangeEventHeader.changedFields === 'CREATE'){
+    if( newData.ChangeEventHeader.changeType === 'CREATE'){
         app.filteredmessages.push(newData);
         app.messages.push(newData);
     }
