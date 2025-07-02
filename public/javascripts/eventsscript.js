@@ -35,26 +35,31 @@ ws.onmessage = function (event) {
   })) {
     console.log('duplicate found');
   } else {
-
-    // Initialize an empty array to hold field-value pairs
-    const changedFieldsWithValues = [];
-    // Extract list of changed fields from the ChangeEventHeader
-    const changedFields = newData.ChangeEventHeader.changedFields; 
-    // Iterate through changed fields and extract their new values
-    changedFields.forEach(field => {
-      const value = newData[field]; // direct key lookup
-      changedFieldsWithValues.push({ field, value });
-    });
-
-    // Extract recordIds
-    const recordIds = newData.ChangeEventHeader.recordIds || [];
-    recordIds.forEach((id, index) => {
-      changedFieldsWithValues.push({ field: `recordId_${index + 1}`, value: id });
-    });
-      
-    console.log(changedFieldsWithValues);
-    app.filteredmessages.push(changedFieldsWithValues);
-    app.messages.push(newData);
+    if( newData.ChangeEventHeader.changedFields === 'CREATE'){
+        app.filteredmessages.push(newData);
+        app.messages.push(newData);
+    }
+    else{
+        // Initialize an empty array to hold field-value pairs
+        const changedFieldsWithValues = [];
+        // Extract list of changed fields from the ChangeEventHeader
+        const changedFields = newData.ChangeEventHeader.changedFields; 
+        // Iterate through changed fields and extract their new values
+        changedFields.forEach(field => {
+          const value = newData[field]; // direct key lookup
+          changedFieldsWithValues.push({ field, value });
+        });
+    
+        // Extract recordIds
+        const recordIds = newData.ChangeEventHeader.recordIds || [];
+        recordIds.forEach((id, index) => {
+          changedFieldsWithValues.push({ field: `recordId_${index + 1}`, value: id });
+        });
+          
+        console.log(changedFieldsWithValues);
+        app.filteredmessages.push(changedFieldsWithValues);
+        app.messages.push(newData);
+    }
   }
 };
 
