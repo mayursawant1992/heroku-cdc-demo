@@ -41,14 +41,18 @@
           <table>
             <thead>
               <tr>
-                <th>Field</th>
-                <th>Value</th>
+                <!--<th>Field</th>
+                <th>Value</th>-->
+                <th v-for="item in tableData" :key="item.field">{{ item.field }}</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in tableData" :key="item.field">
+              <!--<tr v-for="item in tableData" :key="item.field">
                 <td>{{ item.field }}</td>
                 <td>{{ item.value }}</td>
+              </tr>-->
+              <tr>
+                <td v-for="item in tableData" :key="item.field">{{ item.value }}</td>
               </tr>
             </tbody>
           </table>
