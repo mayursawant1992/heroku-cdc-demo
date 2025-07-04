@@ -15,9 +15,13 @@
             <li>No Messages</li>
         </span>        
         <span v-if="messages.length > 0">
-            <li v-for="message in filteredmessages">
+            <!--li v-for="message in filteredmessages">
                 {{ message }}
-            </li>            
+          </li--> 
+          <li v-for="item in filteredmessages" :key="item.field">
+                <span class="field">{{ item.field }}:</span>
+                <span>{{ item.value }}</span>
+          </li>    
         </span>
     </ol>
   </div>
