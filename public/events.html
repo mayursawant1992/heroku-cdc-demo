@@ -5,6 +5,24 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="/javascripts/jsforce.min.js"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+      width: 70%;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+    }
+    th {
+      background-color: #eee;
+    }
+    h3 {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,12 +36,23 @@
             <!--li v-for="message in filteredmessages">
                 {{ message }}
           </li--> 
-          <li v-for="message in filteredmessages">
-            <li v-for="item in message" :key="item.field">
-              <span>{{ item.field }}:</span>
-              <span>{{ item.value }}</span>
-            </li>    
-          </li>    
+          <div v-for="(tableData, i) in filteredmessages" :key="i">
+          <h3>Event #{{ i + 1 }}</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in tableData" :key="item.field">
+                <td>{{ item.field }}</td>
+                <td>{{ item.value }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>  
         </span>
     </ol>
   </div>
